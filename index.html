@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Event Handler</title>
+</head>
+<body>
+    <h2>Letakan Kursor Ke Masing Masing Kotak Untuk Melihat Gambar</h2>
+    <div id="div1">
+        Hewan Bebek
+        <audio autoplay id="bebek" src="audio/bebek.mp3"></audio>
+    </div>
+    <div id="div2">
+        Hewan Kucing
+        <audio id="kucing" src="audio/kucing.mp3"></audio>
+    </div>
+    <div id="div3">
+        Hewan Ayam
+        <audio id="ayam" src="audio/ayam.mp3"></audio>
+    </div>
+    
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('document').ready(function() {
+            Swal.fire("Selamat Datang");
+            var bebek = document.getElementById('bebek');
+            var kucing = document.getElementById('kucing');
+            var ayam = document.getElementById('ayam');
+            $('#div1').mouseover(function() {
+                bebek.play();
+                $(this).css({
+                    background: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/White_domesticated_duck%2C_stretching.jpg/1200px-White_domesticated_duck%2C_stretching.jpg")`
+                });
+            });
+            $('#div1').mouseout(function() {
+                $(this).css({
+                    background: 'green'
+                });
+                bebek.pause();
+                bebek.currentTime = 0;
+            });
+
+            $('#div2').mouseover(function() {
+                kucing.play();
+                $(this).css({
+                    background: `url("https://i1.wp.com/risetcdn.jatimtimes.com/images/2022/09/19/Kusing-Busok-yang-berasal-dari-Raas-Madura.-Cantik-mirip-ras-kucing-Eropajatimtimes-P0442870bf4cdd477.md.jpg?quality=50")`
+                });
+            });
+            $('#div2').mouseout(function() {
+                kucing.pause();
+                kucing.currentTime = 0;
+                $(this).css({
+                    background: 'green'
+                });
+            });
+
+            $('#div3').mouseover(function() {
+                ayam.play();
+                $(this).css({
+                    background: `url("https://media.istockphoto.com/id/180820020/id/foto/ayam-jago.jpg?s=612x612&w=0&k=20&c=vMnR0AlnCsKVu4_kYrDGcmSgYZZXWRCqgn13O4WgVak=")`
+                });
+            });
+            $('#div3').mouseout(function() {
+                ayam.pause();
+                ayam.currentTime = 0;
+                $(this).css({
+                    background: 'green'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
